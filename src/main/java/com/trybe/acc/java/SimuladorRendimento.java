@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class SimuladorRendimento {
 
-  /** Método que simula o rendimento anual */
+  /** Método que simula o rendimento anual. */
   public static void main(String[] args) {
     SimuladorRendimento obj = new SimuladorRendimento();
     double inicial = 500;
@@ -18,17 +18,23 @@ public class SimuladorRendimento {
             + obj.simularRendimentoAnos(inicial, objetivo));
   }
 
+  /**
+   * Método que simula o rendimento anual.
+   *
+   * @param inicial valor inicial
+   * @param objetivo valor objetivo
+   * @return anos para atingir o objetivo
+   */
   public int simularRendimentoAnos(double valorInicial, double valorObjetivo) {
     int anoAtual = LocalDateTime.now().getYear();
     double saldo = valorInicial;
-    int tempo_investimento = 0;
+    int tempo = 0;
 
     while (saldo < valorObjetivo) {
       saldo += saldo * 0.1;
-      tempo_investimento++;
+      tempo++;
     }
 
-    // return anoAtual + tempo_investimento;
-    return anoAtual + tempo_investimento;
+    return anoAtual + tempo;
   }
 }
